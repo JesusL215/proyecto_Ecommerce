@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=M+PLUS+1p:wght@400;700;800&display=swap');
+
+$color-bg: #f9fafb;
+$color-text-main: #0a0a0a;
+$color-text-muted: #4a5565;
+$color-accent: #ff1616;
+$color-border: rgba(0, 0, 0, 0.1);
+
+.product-page {
+  background-color: $color-bg;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+.page-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid $color-border;
+  padding: 24px 100px;
+  margin-bottom: 32px;
+
+  @media (max-width: 1024px) {
+    padding: 24px 40px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px 20px;
+  }
+
+  .page-title {
+    font-family: 'M PLUS 1p', sans-serif;
+    font-weight: 800; // ExtraBold
+    font-size: 30px;
+    color: #000000;
+    margin: 0;
+    line-height: 1.2;
+  }
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: 256px 1fr;
+  gap: 32px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 100px;
+
+  @media (max-width: 1024px) {
+    padding: 0 40px;
+    grid-template-columns: 220px 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+    grid-template-columns: 1fr; // Colapsar a 1 columna
+  }
+}
+
+/* Sidebar Filters */
+.sidebar-filters {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1), 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  height: fit-content;
+
+  // Detalles nativos para hacer acordeón en móvil
+  .mobile-filters-details {
+    &>summary {
+      list-style: none; // Ocultar flecha nativa
+      cursor: pointer;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+  }
+
+  .filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+
+    .filters-title {
+      font-family: 'M PLUS 1p', sans-serif;
+      font-weight: 800; // ExtraBold
+      font-size: 20px;
+      color: $color-text-main;
+      margin: 0;
+    }
+
+    .clear-btn {
+      background: none;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600; // SemiBold
+      font-size: 14px;
+      color: $color-accent;
+      cursor: pointer;
+      padding: 0;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .filters-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .filter-section {
+    border-top: 1px solid $color-border;
+    padding-top: 17px;
+
+    // Quitar borde superior de la primera sección
+    &:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .filter-section-title {
+      font-family: 'M PLUS 1p', sans-serif;
+      font-weight: 700; // Bold
+      font-size: 14px;
+      color: $color-text-main;
+      margin: 0 0 12px 0;
+    }
+
+    .filter-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      li label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Segoe UI', system-ui, sans-serif;
+        font-weight: 500; // Medium
+        font-size: 14px;
+        color: $color-text-main;
+        cursor: pointer;
+
+        input[type="radio"] {
+          width: 13px;
+          height: 13px;
+          margin: 0;
+          cursor: pointer;
+          accent-color: $color-accent; // Aplica color rojo al check si el navegador lo soporta
+        }
+      }
+    }
+  }
+
+  // Comportamiento móvil: el acordeón se puede cerrar
+  @media (max-width: 768px) {
+    margin-bottom: 24px;
+
+    .mobile-filters-details:not([open]) .filters-header {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* Main Content */
+.main-content {
+  .results-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400; // Regular
+    font-size: 16px;
+    color: $color-text-muted;
+    margin: 0 0 16px 0;
+  }
+}
+
+::ng-deep app-product-list {
+  display: block;
+
+  // Ajustamos el title y margins porque ya estamos en una página
+  .product-list-container {
+    padding: 0 !important;
+  }
+
+  .section-header {
+    display: none;
+  }
+
+  .product-grid {
+
+    @media (min-width: 1441px) {
+      grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    @media (max-width: 1440px) {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr !important;
+    }
+  }
+}

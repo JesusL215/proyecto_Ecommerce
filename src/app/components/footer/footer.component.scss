@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=M+PLUS+1p:wght@400;800&display=swap');
+
+$color-bg: #000000;
+$color-text: #ffffff;
+$color-accent: #ff1616;
+$color-btn-bg: #d81010;
+$color-input-bg: #191919;
+$color-input-border: #737373;
+$color-input-text: rgba(115, 115, 115, 0.5);
+
+$font-inter: 'Inter', sans-serif;
+$font-mplus: 'M PLUS 1p', sans-serif;
+$font-system: 'Segoe UI', system-ui, sans-serif;
+
+.footer {
+  background-color: $color-bg;
+  padding: 48px 100px;
+  width: 100%;
+  box-sizing: border-box;
+
+  @media (max-width: 1024px) {
+    padding: 48px 40px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 20px;
+  }
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 48px;
+  }
+}
+
+/* Columna 1: Branding */
+.footer-brand {
+  flex: 1;
+  min-width: 280px;
+  max-width: 424px;
+}
+
+.footer-logo {
+  font-family: $font-inter;
+  font-weight: 700; // Bold
+  font-size: 32px;
+  margin: 0 0 16px 0;
+  line-height: 1.3;
+
+  .logo-white {
+    color: $color-text;
+  }
+
+  .logo-red {
+    color: $color-accent;
+  }
+}
+
+.footer-description {
+  font-family: $font-inter;
+  font-weight: 400; // Regular
+  font-size: 15px;
+  color: $color-text;
+  line-height: 1.6; // ~24.375px
+  margin: 0 0 24px 0;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 16px;
+
+  .social-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222; // Placeholder bg if no svg
+    border-radius: 4px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+/* Columna 2: Navegación */
+.footer-nav {
+  flex: 1;
+  min-width: 280px;
+  max-width: 424px;
+}
+
+.footer-title {
+  font-family: $font-mplus;
+  font-weight: 800; // ExtraBold
+  font-size: 18px;
+  color: $color-text;
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+}
+
+.footer-links {
+  display: flex;
+  gap: 40px;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.link-column {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  li a {
+    font-family: $font-mplus;
+    font-weight: 400; // Regular
+    font-size: 14px;
+    color: $color-text;
+    text-decoration: none;
+    line-height: 1.5; // ~21px
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-accent;
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Columna 3: Suscripción */
+.footer-subscribe {
+  flex: 1;
+  min-width: 280px;
+  max-width: 424px;
+}
+
+.subscribe-desc {
+  font-family: $font-mplus;
+  font-weight: 400; // Regular
+  font-size: 14px;
+  color: $color-text;
+  margin: 0 0 16px 0;
+  line-height: 1.5; // ~21px
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  height: 26.5px;
+  width: 100%;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    height: auto;
+    align-items: stretch;
+  }
+}
+
+.input-wrapper {
+  flex: 1;
+  height: 100%;
+
+  @media (max-width: 480px) {
+    height: 32px;
+  }
+}
+
+.subscribe-input {
+  width: 100%;
+  height: 100%;
+  background-color: $color-input-bg;
+  border: 1px solid $color-input-border;
+  border-radius: 5px;
+  padding: 4px 12px;
+  color: $color-text;
+  font-family: $font-system;
+  font-size: 11px;
+  box-sizing: border-box;
+  outline: none;
+
+  &::placeholder {
+    color: $color-input-text;
+  }
+
+  &:focus {
+    border-color: $color-accent;
+  }
+}
+
+.subscribe-btn {
+  background-color: $color-btn-bg;
+  color: $color-text;
+  border: none;
+  border-radius: 5px;
+  height: 100%;
+  padding: 0 16px;
+  font-family: $font-mplus;
+  font-weight: 800; // ExtraBold
+  font-size: 11px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  @media (max-width: 480px) {
+    height: 32px;
+  }
+
+  &:hover {
+    background-color: darken($color-btn-bg, 10%);
+  }
+}

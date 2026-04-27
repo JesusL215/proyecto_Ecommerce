@@ -1,0 +1,35 @@
+<section class="categories-section">
+  
+  <h2 class="categories-title">CATEGORIAS</h2>
+
+  <div class="categories-carousel-wrapper">
+    <!-- Flecha Izquierda -->
+    <button class="nav-arrow nav-arrow--left" (click)="scrollLeft(scrollContainer)" aria-label="Anterior">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M15 18l-6-6 6-6"></path>
+      </svg>
+    </button>
+
+    <!-- Contenedor scrolleable con @for -->
+    <div class="categories-scroll" #scrollContainer>
+      @for (category of categories; track category.name) {
+        <div class="category-item">
+          <!-- El contenedor con sombra y borde -->
+          <div class="category-item__image-container">
+            <div class="category-item__image-inner">
+              <img [src]="category.image" [alt]="category.name" class="category-image" onerror="this.src='assets/placeholder.png'">
+            </div>
+          </div>
+          <p class="category-item__name">{{ category.name }}</p>
+        </div>
+      }
+    </div>
+
+    <!-- Flecha Derecha -->
+    <button class="nav-arrow nav-arrow--right" (click)="scrollRight(scrollContainer)" aria-label="Siguiente">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 18l6-6-6-6"></path>
+      </svg>
+    </button>
+  </div>
+</section>
