@@ -1,0 +1,60 @@
+<section class="page-title">
+  <div class="container">
+    <h1>PRODUCTOS</h1>
+  </div>
+</section>
+
+<section class="catalog-section">
+  <div class="container catalog-layout">
+    <aside class="filter-card">
+      <div class="filter-heading">
+        <h2>FILTROS</h2>
+        <button type="button" (click)="clearFilters()">Limpiar</button>
+      </div>
+
+      <div class="filter-group">
+        <h3>Categoría</h3>
+        <button *ngFor="let category of categories" [class.active]="selectedCategory === category" type="button" (click)="selectCategory(category)">
+          {{ category }}
+        </button>
+      </div>
+
+      <div class="filter-group">
+        <h3>Marca</h3>
+        <button *ngFor="let brand of brands" [class.active]="selectedBrand === brand" type="button" (click)="selectBrand(brand)">
+          {{ brand }}
+        </button>
+      </div>
+
+      <div class="filter-group">
+        <h3>Precio</h3>
+        <button *ngFor="let price of priceRanges" [class.active]="selectedPrice === price" type="button" (click)="selectPrice(price)">
+          {{ price }}
+        </button>
+      </div>
+    </aside>
+
+    <div class="catalog-content">
+      <p class="muted">Mostrando {{ filteredProducts.length }} productos</p>
+
+      <div class="product-grid catalog-grid">
+        <a *ngFor="let product of filteredProducts" class="product-card sale-style" [routerLink]="['/productos', product.id]">
+          <span class="discount-badge">-{{ product.discount }}%</span>
+          <div class="product-image">
+            <img [src]="product.image" [alt]="product.name" loading="lazy">
+          </div>
+          <div class="product-body">
+            <h3>{{ product.name }}</h3>
+            <p>Modelo: {{ product.model }}</p>
+            <p>Marca: {{ product.brand }}</p>
+            <div class="price-row">
+              <strong>S/{{ product.price }}</strong>
+              <small>S/{{ product.oldPrice }}</small>
+              <span [class.low-stock]="product.stock <= 10">Stock: {{ product.stock }}</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,79 @@
+<section class="auth-page">
+  <aside class="auth-visual">
+    <a routerLink="/" class="brand auth-brand">Master<span>Tech</span></a>
+
+    <div class="auth-copy">
+      <div class="red-line"></div>
+      <h1>Únete a MasterTech</h1>
+      <p>Crea tu cuenta gratuita y accede a ofertas exclusivas, seguimiento de pedidos en tiempo real y mucho más.</p>
+
+      <ul class="auth-benefits">
+        <li>Acceso a ofertas exclusivas para miembros</li>
+        <li>Seguimiento de pedidos en tiempo real</li>
+        <li>Historial de compras y garantías</li>
+        <li>Soporte prioritario 24/7</li>
+      </ul>
+    </div>
+
+    <p class="copyright">© 2024 MasterTech. Todos los derechos reservados.</p>
+  </aside>
+
+  <div class="auth-panel">
+    <div class="auth-form register-form">
+      <a routerLink="/" class="back-link">← Volver al inicio</a>
+      <h1>Crear cuenta</h1>
+      <p>Completa el formulario para registrarte.</p>
+
+      <label>
+        Nombre completo
+        <div class="input-icon">
+          <span>👤</span>
+          <input type="text" placeholder="Tu nombre completo">
+        </div>
+      </label>
+
+      <label>
+        Correo electrónico
+        <div class="input-icon">
+          <span>✉</span>
+          <input type="email" placeholder="tucorreo@ejemplo.com">
+        </div>
+      </label>
+
+      <label>
+        Teléfono <small>(opcional)</small>
+        <div class="input-icon">
+          <span>☎</span>
+          <input type="tel" placeholder="+51 999 999 999">
+        </div>
+      </label>
+
+      <label>
+        Contraseña
+        <div class="input-icon">
+          <span>🔒</span>
+          <input type="password" placeholder="Mínimo 8 caracteres">
+          <span>👁</span>
+        </div>
+      </label>
+
+      <label>
+        Confirmar contraseña
+        <div class="input-icon">
+          <span>🔒</span>
+          <input type="password" placeholder="Repite tu contraseña">
+          <span>👁</span>
+        </div>
+      </label>
+
+      <label class="check-row">
+        <input type="checkbox">
+        Acepto los <a routerLink="/terminos">Términos y Condiciones</a> y las <a routerLink="/privacidad">Políticas de Privacidad</a>
+      </label>
+
+      <button class="btn btn-primary full" type="button">Crear mi cuenta</button>
+
+      <p class="auth-switch">¿Ya tienes cuenta? <a routerLink="/login">Iniciar sesión</a></p>
+    </div>
+  </div>
+</section>

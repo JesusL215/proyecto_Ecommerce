@@ -1,0 +1,117 @@
+<section class="breadcrumb-bar">
+  <div class="container">
+    <a routerLink="/">Inicio</a>
+    <span>›</span>
+    <a routerLink="/productos">Productos</a>
+    <span>›</span>
+    <span>{{ product.category }}</span>
+    <span>›</span>
+    <strong>{{ product.name }}</strong>
+  </div>
+</section>
+
+<section class="page-section product-detail-section soft-bg">
+  <div class="container narrow">
+    <a routerLink="/productos" class="back-link">‹ Volver</a>
+
+    <article class="detail-card">
+      <div class="detail-gallery">
+        <span class="discount-badge">-{{ product.discount }}%</span>
+        <button class="heart-button" type="button">♡</button>
+
+        <div class="detail-image">
+          <img [src]="product.image" [alt]="product.name">
+        </div>
+
+        <div class="thumb-row">
+          <button *ngFor="let item of [1,2,3,4]; let first = first" [class.active]="first" type="button">
+            <img [src]="product.image" [alt]="product.name + ' miniatura'">
+          </button>
+        </div>
+      </div>
+
+      <div class="detail-info">
+        <div class="tag-row">
+          <span>{{ product.brand }}</span>
+          <span>{{ product.category }}</span>
+        </div>
+
+        <h1>{{ product.name }}</h1>
+
+        <div class="rating-row">
+          <span class="stars">★★★★★</span>
+          <span>4.8 (324 reseñas)</span>
+          <small>↗ Compartir</small>
+        </div>
+
+        <div class="detail-price">
+          <strong>S/{{ product.price }}</strong>
+          <small>S/{{ product.oldPrice }}</small>
+          <span>Ahorras ${{ product.oldPrice - product.price }}</span>
+        </div>
+
+        <div class="option-group">
+          <p>Color: <strong>{{ selectedColor }}</strong></p>
+          <div class="pill-row">
+            <button *ngFor="let color of product.colors" [class.active]="selectedColor === color" type="button" (click)="selectColor(color)">
+              {{ color }}
+            </button>
+          </div>
+        </div>
+
+        <div class="option-group">
+          <p>Cantidad:</p>
+          <div class="quantity-row">
+            <button type="button" (click)="decrement()">−</button>
+            <strong>{{ quantity }}</strong>
+            <button type="button" (click)="increment()">＋</button>
+            <span>{{ product.stock }} disponibles</span>
+          </div>
+        </div>
+
+        <div class="detail-actions">
+          <button class="btn btn-outline-red" type="button">🛒 Agregar al carrito</button>
+          <button class="btn btn-primary" type="button">⚡ Comprar ahora</button>
+        </div>
+
+        <div class="service-grid">
+          <div><strong>🚚 Envío gratis</strong><span>Pedidos +$200</span></div>
+          <div><strong>🛡 Garantía</strong><span>1 año garantía</span></div>
+          <div><strong>↺ Devolución</strong><span>30 días</span></div>
+          <div><strong>✓ Original</strong><span>100% auténtico</span></div>
+        </div>
+      </div>
+    </article>
+
+    <section class="tabs-card">
+      <div class="tabs">
+        <button class="active" type="button">Descripción</button>
+        <button type="button">Especificaciones</button>
+        <button type="button">Garantía</button>
+      </div>
+      <div class="tab-content">
+        <p>{{ product.description }}</p>
+        <h3>Características principales</h3>
+        <ul class="check-list">
+          <li *ngFor="let feature of product.features">{{ feature }}</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="related-section" *ngIf="related.length">
+      <h2>PRODUCTOS RELACIONADOS</h2>
+      <div class="product-grid related-grid">
+        <a *ngFor="let item of related" class="product-card simple" [routerLink]="['/productos', item.id]">
+          <div class="product-image">
+            <img [src]="item.image" [alt]="item.name">
+          </div>
+          <div class="product-body">
+            <small>{{ item.brand }}</small>
+            <h3>{{ item.name }}</h3>
+            <strong>S/{{ item.price }}</strong>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+</section>

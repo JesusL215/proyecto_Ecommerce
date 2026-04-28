@@ -1,0 +1,49 @@
+<section class="offers-hero">
+  <div class="container">
+    <h1>OFERTAS ESPECIALES</h1>
+    <p>Aprovecha nuestros descuentos exclusivos en productos seleccionados.</p>
+  </div>
+</section>
+
+<section class="page-section soft-bg">
+  <div class="container narrow">
+    <div class="product-grid offers-grid">
+      <article *ngFor="let product of products" class="offer-card">
+        <span class="discount-badge">-{{ product.discount }}%</span>
+        <a [routerLink]="['/productos', product.id]" class="product-image large">
+          <img [src]="product.image" [alt]="product.name">
+        </a>
+        <div class="product-body">
+          <h3>{{ product.name }}</h3>
+          <div class="offer-price">
+            <strong>S/{{ product.price }}</strong>
+            <small>S/{{ product.oldPrice }}</small>
+          </div>
+          <p>Ahorras: S/{{ product.oldPrice - product.price }}</p>
+          <div class="offer-actions">
+            <span [class.low-stock]="product.stock <= 10">Stock: {{ product.stock }} unidades</span>
+            <a [routerLink]="['/productos', product.id]" class="btn btn-primary small">Comprar</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="benefits-card">
+      <h2>¿Por qué comprar en nuestras ofertas?</h2>
+      <div class="benefits-grid">
+        <div>
+          <h3>Mejores Precios</h3>
+          <p>Descuentos de hasta 30% en productos seleccionados de las mejores marcas.</p>
+        </div>
+        <div>
+          <h3>Garantía Master</h3>
+          <p>Todos nuestros productos incluyen garantía extendida sin costo adicional.</p>
+        </div>
+        <div>
+          <h3>Envío Gratis</h3>
+          <p>Envío gratuito en todas las compras de productos en oferta.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

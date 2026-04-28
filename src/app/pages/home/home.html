@@ -1,0 +1,137 @@
+<div class="home-page">
+
+  <section class="page-section home-hero">
+    <button
+      class="floating-arrow left"
+      type="button"
+      aria-label="Banner anterior"
+      (click)="previousBanner()"
+    >
+      ‹
+    </button>
+
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="hero-kicker">
+          Banner {{ currentBannerIndex + 1 }} de {{ banners.length }}
+        </p>
+
+        <h1>{{ currentBanner.title }}</h1>
+
+        <p>{{ currentBanner.description }}</p>
+
+        <div class="hero-actions">
+          <a [routerLink]="currentBanner.primaryLink" class="btn btn-primary">
+            {{ currentBanner.primaryText }}
+          </a>
+
+          <a [routerLink]="currentBanner.secondaryLink" class="btn btn-primary">
+            {{ currentBanner.secondaryText }}
+          </a>
+        </div>
+
+        <div class="hero-dots" aria-label="Indicadores de banners">
+          <button
+            *ngFor="let banner of banners; let i = index"
+            type="button"
+            [class.active]="i === currentBannerIndex"
+            [attr.aria-label]="'Ir al banner ' + (i + 1)"
+            (click)="currentBannerIndex = i"
+          ></button>
+        </div>
+      </div>
+
+      <div class="hero-products">
+        <img
+          *ngFor="let image of currentBanner.images"
+          [src]="image.src"
+          [alt]="image.alt"
+          loading="lazy"
+        >
+      </div>
+    </div>
+
+    <button
+      class="floating-arrow right"
+      type="button"
+      aria-label="Siguiente banner"
+      (click)="nextBanner()"
+    >
+      ›
+    </button>
+  </section>
+
+  <section class="page-section">
+    <div class="container">
+      <h2 class="section-title">CATEGORÍAS</h2>
+
+      <div class="categories-carousel">
+        <button
+          class="category-arrow"
+          type="button"
+          aria-label="Categorías anteriores"
+          (click)="scrollCategories('left')"
+        >
+          ‹
+        </button>
+
+        <div class="categories-track" #categoryTrack>
+          <a
+            *ngFor="let category of categories"
+            class="category-card"
+            routerLink="/productos"
+            [queryParams]="{ categoria: category }"
+          >
+            <span class="category-circle">
+              <img
+                [src]="imageForCategory(category)"
+                [alt]="category"
+                loading="lazy"
+              >
+            </span>
+
+            <strong>{{ category }}</strong>
+          </a>
+        </div>
+
+        <button
+          class="category-arrow"
+          type="button"
+          aria-label="Siguientes categorías"
+          (click)="scrollCategories('right')"
+        >
+          ›
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section compact">
+    <div class="container">
+      <h2 class="section-title">PRODUCTOS EN TENDENCIA</h2>
+
+      <div class="product-grid home-products">
+        <a
+          *ngFor="let product of products"
+          class="product-card simple"
+          [routerLink]="['/productos', product.id]"
+        >
+          <div class="product-image">
+            <img
+              [src]="product.image"
+              [alt]="product.name"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="product-body">
+            <h3>{{ product.name }}</h3>
+            <strong>S/{{ product.price }}</strong>
+            <span>Stock: {{ product.stock }} unidades</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>

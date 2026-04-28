@@ -1,0 +1,31 @@
+<header class="site-header">
+  <div class="container nav-bar">
+    <a routerLink="/" class="brand" aria-label="MasterTech">
+      Master<span>Tech</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">INICIO</a>
+
+      <div class="nav-dropdown">
+        <a routerLink="/productos" routerLinkActive="active">PRODUCTOS <small>⌄</small></a>
+        <div class="dropdown-panel">
+          <a routerLink="/productos">Todos los productos</a>
+          <a routerLink="/productos" [queryParams]="{ categoria: 'Laptops' }">Laptops</a>
+          <a routerLink="/productos" [queryParams]="{ categoria: 'Smartphones' }">Smartphones</a>
+          <a routerLink="/productos" [queryParams]="{ categoria: 'Tablets' }">Tablets</a>
+          <a routerLink="/productos" [queryParams]="{ categoria: 'Gaming' }">Gaming</a>
+          <a routerLink="/productos" [queryParams]="{ categoria: 'Accesorios' }">Accesorios</a>
+        </div>
+      </div>
+
+      <a routerLink="/ofertas" routerLinkActive="active">OFERTAS</a>
+      <a routerLink="/soporte" routerLinkActive="active">SOPORTE</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="cart-button" type="button" aria-label="Carrito">🛒</button>
+      <a routerLink="/login" class="btn btn-outline-light">Iniciar Sesión</a>
+    </div>
+  </div>
+</header>
