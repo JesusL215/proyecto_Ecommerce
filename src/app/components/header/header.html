@@ -8,7 +8,7 @@
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">INICIO</a>
 
       <div class="nav-dropdown">
-        <a routerLink="/productos" routerLinkActive="active">PRODUCTOS <small>⌄</small></a>
+        <a routerLink="/#" routerLinkActive="active">PRODUCTOS <small>⌄</small></a> <!--/productos-->
         <div class="dropdown-panel">
           <a routerLink="/productos">Todos los productos</a>
           <a routerLink="/productos" [queryParams]="{ categoria: 'Laptops' }">Laptops</a>
@@ -19,13 +19,13 @@
         </div>
       </div>
 
-      <a routerLink="/ofertas" routerLinkActive="active">OFERTAS</a>
-      <a routerLink="/soporte" routerLinkActive="active">SOPORTE</a>
+      <a routerLink="/#" routerLinkActive="active">OFERTAS</a> <!--/ofertas-->
+      <a routerLink="/#" routerLinkActive="active">SOPORTE</a> <!--/soporte-->
     </nav>
 
     <div class="nav-actions">
       <button class="cart-button" type="button" aria-label="Carrito">🛒</button>
-      <a routerLink="/login" class="btn btn-outline-light">Iniciar Sesión</a>
+      <a routerLink="/#" class="btn btn-outline-light">Iniciar Sesión</a> <!--/Login-->
     </div>
   </div>
 </header>

@@ -72,12 +72,12 @@ export class Home {
   }
 
   nextBanner(): void {
-    this.currentBannerIndex = (this.currentBannerIndex + 1) % this.banners.length;
+    //this.currentBannerIndex = (this.currentBannerIndex + 1) % this.banners.length;
   }
 
   previousBanner(): void {
-    this.currentBannerIndex =
-      (this.currentBannerIndex - 1 + this.banners.length) % this.banners.length;
+    //this.currentBannerIndex =
+      //(this.currentBannerIndex - 1 + this.banners.length) % this.banners.length;
   }
 
   imageForCategory(category: string): string {
