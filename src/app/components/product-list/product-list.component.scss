@@ -1,3 +1,4 @@
+@use "sass:color";
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@700;800&family=Inter:wght@400&display=swap');
 
 $color-bg: #ffffff;
@@ -193,6 +194,6 @@ $font-system: 'Segoe UI', system-ui, sans-serif;
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: darken($color-btn, 10%);
+    background-color: color.adjust($color-btn, $lightness: -10%);
   }
 }
